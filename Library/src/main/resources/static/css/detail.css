@@ -1,0 +1,68 @@
+.itemContainer {
+    margin: 70px auto;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.image {
+    width: 320px;
+}
+
+.detailContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.value {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.btnContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+    width: 280px;
+}
+
+.updateBtn {
+    height: 30px;
+    width: 130px;
+    background-color: #5cb85c;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.updateBtn a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+}
+
+.updateBtn:hover {
+    background-color: #3fb770;
+}
+
+.deleteBtn {
+    height: 30px;
+    width: 130px;
+    background-color: #5cb85c;
+    border-style: none;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    margin: 0 auto;
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+}
+
+.deleteBtn:hover {
+    background-color: #3fb770;
+}

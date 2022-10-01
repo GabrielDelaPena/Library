@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=https://www.thymleaf.org>
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/detail.css}" href="../static/css/detail.css">
+</head>
+<body>
+<nav>
+    <h1>Library</h1>
+    <ul>
+        <li>
+            <a th:href="@{/}">All Books</a>
+        </li>
+        <li>
+            <a th:href="@{/addNewBook}">New Book</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="itemContainer" th:object="${book}">
+    <!--    <img class="image" src="https://i2.wp.com/halcyonrealms.com/blogpics/slamdunknew06.jpg?resize=500%2C780">-->
+    <!--    <div class="detailContainer">-->
+    <!--        <p class="label">Title: <span class="value">Slam Dunk</span></p>-->
+    <!--        <p class="label">Author: <span class="value">Takehiko Inoue</span></p>-->
+    <!--        <p class="label">Date: <span class="value">1993-01-01</span></p>-->
+    <!--        <div class="btnContainer">-->
+    <!--            <button class="updateBtn">-->
+    <!--                <a href="#">Update</a>-->
+    <!--            </button>-->
+    <!--            <form>-->
+    <!--                <button class="deleteBtn">Delete</button>-->
+    <!--            </form>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+    <img class="image" th:src="${book.imageUrl}">
+    <div class="detailContainer">
+        <p>Title: <span class="value" th:text="${book.title}"></span></p>
+        <p>Author: <span class="value" th:text="${book.author}"></span></p>
+        <p>Date: <span class="value" th:text="${book.date}"></span></p>
+        <div class="btnContainer">
+            <button class="updateBtn">
+                <a th:href="@{/update/book/{id}(id = ${book.id})}">Update</a>
+            </button>
+            <form method="post" th:action="@{/deleteBook/{id}(id = ${book.id})}">
+                <button class="deleteBtn" th:field="submit">Delete</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

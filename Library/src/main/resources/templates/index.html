@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=https://www.thymleaf.org>
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/style.css}" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/index.css}" href="../static/css/index.css">
+</head>
+<body>
+<nav>
+    <h1>Library</h1>
+    <ul>
+        <li>
+            <a th:href="@{/}">All Books</a>
+        </li>
+        <li>
+            <a th:href="@{/addNewBook}">New Book</a>
+        </li>
+    </ul>
+</nav>
+
+
+<div class="searchContainer">
+    <form method="get" th:action="@{/books}">
+        <label class="searchLabel" for="search-input">Title: </label>
+        <input class="searchInput" type="text" id="search-input" name="keywords"/>
+        <button class="searchBtn" type="submit">Search</button>
+    </form>
+</div>
+
+<div class="cardContainer">
+    <div class="card" th:each="book : ${books}">
+<!--        <img class="image" src="https://879ed873-madman-com-au.akamaized.net/media/Releases/59517/59517-2348506.jpg">
+        <p class="title">One Piece</p>
+        <button class="detailBtn">
+            <a>Detail</a>
+        </button>-->
+        <img class="image" th:src="${book.imageUrl}">
+        <p class="title" th:text="${book.title}"></p>
+        <button class="detailBtn">
+            <a th:href="@{/detail/{id}(id = ${book.id})}">Detail</a>
+        </button>
+    </div>
+</div>
+
+</body>
+</html>

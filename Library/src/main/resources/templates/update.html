@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=https://www.thymleaf.org>
+<head>
+    <meta charset="UTF-8">
+    <title>Update</title>
+    <link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/style.css}" href="../static/css/style.css">
+    <link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/newBook.css}" href="../static/css/newBook.css">
+</head>
+<body>
+<nav>
+    <h1>Library</h1>
+    <ul>
+        <li>
+            <a th:href="@{/}">All Books</a>
+        </li>
+        <li>
+            <a th:href="@{/addNewBook}">New Book</a>
+        </li>
+    </ul>
+</nav>
+
+<div>
+    <form class="formContainer" method="post" th:object="${modelBook}" th:action="@{~/updateBook/{id}(id = ${book.id})}">
+        <div class="inputField">
+            <label for="title">Title</label>
+            <input type="text" id="title" th:field="${modelBook.title}" th:placeholder="${book.title}" />
+        </div>
+        <div class="inputField">
+            <label for="author">Author</label>
+            <input type="text" id="author" th:field="${modelBook.author}" th:placeholder="${book.author}"/>
+        </div>
+        <div class="inputField">
+            <label for="date">Date</label>
+            <input type="text" id="date" th:field="${modelBook.date}" th:placeholder="${book.date}"/>
+        </div>
+        <div class="inputField">
+            <label for="imageUrl">ImageUrl</label>
+            <input type="text" id="imageUrl" th:field="${modelBook.imageUrl}" th:placeholder="${book.imageUrl}"/>
+        </div>
+        <button class="btnSubmit" th:field="submit">Update</button>
+    </form>
+</div>
+
+</body>
+</html>
